@@ -51,11 +51,12 @@ pointLight.position.set(-5, 5, -5);
 scene.add(pointLight);
 
 // Load Eye Model
+let eye = null;
 const loader = new GLTFLoader();
 loader.load(
     'anatomical_eye_ball.glb',
     (gltf) => {
-    const eye = gltf.scene;
+    eye = gltf.scene;
     eye.position.set(0, 3, 0);
     eye.scale.setScalar(0.01);
     eye.castShadow = true;
@@ -80,6 +81,10 @@ window.addEventListener('resize', () => {
 function animate() {
     requestAnimationFrame(animate);
     controls.update();
+
+    // Eye looks at camera
+    eye.lookAt(camera.position);
+
     renderer.render(scene, camera);
 }
 
