@@ -1,0 +1,16 @@
+{
+  "name": "rotation-eye",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Electron app with Three.js eye visualization",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^41.0.2"
+  },
+  "dependencies": {
+    "three": "^0.183.2"
+  }
+}
