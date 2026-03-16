@@ -22,6 +22,37 @@ renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 document.body.appendChild(renderer.domElement);
 
+// UI Container
+const uiContainer = document.createElement('div');
+uiContainer.style.position = 'absolute';
+uiContainer.style.top = '10px';
+uiContainer.style.left = '10px';
+uiContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+uiContainer.style.padding = '10px';
+uiContainer.style.borderRadius = '5px';
+uiContainer.style.color = 'white';
+uiContainer.style.fontFamily = 'Arial, sans-serif';
+uiContainer.style.zIndex = '100';
+document.body.appendChild(uiContainer);
+
+// Checkbox for "Look at Camera"
+const checkboxLabel = document.createElement('label');
+checkboxLabel.style.display = 'flex';
+checkboxLabel.style.alignItems = 'center';
+checkboxLabel.style.gap = '8px';
+checkboxLabel.style.cursor = 'pointer';
+
+const lookAtCameraCheckbox = document.createElement('input');
+lookAtCameraCheckbox.type = 'checkbox';
+lookAtCameraCheckbox.checked = true;
+
+const checkboxText = document.createElement('span');
+checkboxText.textContent = 'Смотреть на камеру';
+
+checkboxLabel.appendChild(lookAtCameraCheckbox);
+checkboxLabel.appendChild(checkboxText);
+uiContainer.appendChild(checkboxLabel);
+
 // OrbitControls
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
@@ -82,8 +113,9 @@ function animate() {
     requestAnimationFrame(animate);
     controls.update();
 
-    // Eye looks at camera
-    eye.lookAt(camera.position);
+    // Eye looks at camera (if checkbox is checked)
+    if (eye && lookAtCameraCheckbox.checked)
+        eye.lookAt(camera.position);
 
     renderer.render(scene, camera);
 }
