@@ -16,3 +16,11 @@
 
 Как делают ИИ (не забудьте переключить на новую функцию от ИИ):
 ![lookAt](/img/eye-false.jpg)
+
+### Установка и запуск
+```shell
+git clone https://github.com/BiosNod/rotation-eye.git
+cd rotation-eye
+npm install
+npm start
+```
