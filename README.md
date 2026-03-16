@@ -5,6 +5,22 @@
 
 ---
 
+## 🛠️ Установка и запуск
+
+```bash
+# 1. Клонировать репозиторий
+git clone https://github.com/BiosNod/rotation-eye.git
+cd rotation-eye
+
+# 2. Установить зависимости
+npm install
+
+# 3. Запустить приложение
+npm start
+```
+
+---
+
 ## 📖 Описание задачи
 
 В проекте есть:
@@ -21,14 +37,14 @@
 eye.lookAt(camera.position);
 ```
 
-### 🔸 Что нужно сделать тебе
+### 🔸 Что нужно сделать ИИ
 
-Написать **свою собственную функцию** с тем же поведением:
+Написать дополнительно **свою собственную функцию** с тем же поведением как и у `eye.lookAt()`:
 ```javascript
 lookAtCustom(eye, camera.position);
 ```
 
-Функция должна вычислять углы вращения `(rotation.x, rotation.y, rotation.z)` глаза так, чтобы он смотрел на камеру.
+Функция должна вычислять углы вращения `(rotation.x, rotation.y, rotation.z)` глаза так, чтобы он смотрел на камеру так же, как и при вызове `eye.lookAt()` как это сделано сейчас в коде.
 
 ---
 
@@ -58,22 +74,6 @@ lookAtCustom(eye, camera.position);
 | ![False](/img/eye-false.jpg) | ![True](/img/eye-true.jpg) |
 
 > ⚠️ **Важно:** Обязательно переключайся на свою функцию в UI для проверки!
-
----
-
-## 🛠️ Установка и запуск
-
-```bash
-# 1. Клонировать репозиторий
-git clone https://github.com/BiosNod/rotation-eye.git
-cd rotation-eye
-
-# 2. Установить зависимости
-npm install
-
-# 3. Запустить приложение
-npm start
-```
 
 ---
 
